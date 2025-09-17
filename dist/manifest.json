@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "치지직 세부 검색기",
+  "version": "1.0.0",
+  "description": "치지직 세부 검색기",
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "치지직 세부 검색기"
+  },
+  "permissions": [
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://api.chzzk.naver.com/service/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://*/*"],
+      "js": ["surfer.js"],
+      "run_at": "document_end"
+    }
+  ]
+}

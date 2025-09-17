@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "es2020",
+    "module": "es2020",
+    "strict": true,
+    "esModuleInterop": true,
+    "outDir": "./dist",
+    "lib": ["es2017", "dom"],
+    "types": ["chrome"],
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true
+  },
+  "include": ["./*.ts"],
+  "exclude": ["node_modules"]
+}

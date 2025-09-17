@@ -1,0 +1,402 @@
+* {
+  box-sizing: border-box; /* 패딩과 테두리를 요소 크기에 포함시킴 */
+}
+body {
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: 150px 1fr;
+  grid-template-areas:
+  "top"
+  "cate"
+  "main";
+  margin: 0;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
+  background-color:rgb(26, 26, 30);
+}
+.search-container {
+  grid-area: top;
+  display: grid;
+  grid-template-columns: 120px 120px 190px auto;
+  margin-bottom: 2px;
+  gap: 5px;
+  width: 100%;
+}
+.main {
+  grid-area: main;
+}
+input, textarea {
+  width: 120px;
+  flex-grow: 1;
+  padding: 7px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px 0 0 4px;
+}
+.s1 {
+  width: 100px;
+}
+.s2 {
+  width: 110px;
+}
+.s3 {
+  width: 320px;
+  height: 130px;
+  font-size: 13px;
+}
+.s4 {
+  width: 100px;
+  font-size: 14px;
+}
+.s5 {
+  margin: 3px;
+  color: rgb(255, 255, 255);
+}
+.s6 {
+  width: 145px;
+}
+.s7 {
+  width: 500px;
+}
+
+.t1 {
+  transform: translate(0px, -10px);
+}
+.t2 {
+  transform: translate(0px, 22px);
+}
+.t3 {
+  transform: translate(0px, -30px);
+}
+
+.center-element {
+  position: relative; /* 또는 fixed */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+button {
+  width: 50px;
+  height: 30px;
+  padding: 0px;
+  background-color: #4285F4;
+  color: white;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  font-size: 16px;
+}
+button:hover {
+  background-color: #3367D6;
+}
+
+
+.checkbox-line input[type="checkbox"] {
+  display: none;
+}
+
+/* 라벨(텍스트)을 커스텀 체크박스처럼 보이게 하기 */
+.checkbox-line label {
+  display: flex; /* 내부 요소(::before와 텍스트)를 가로 정렬 */
+  align-items: center; /* 세로 중앙 정렬 */
+  position: relative; /* ::before 가상 요소의 기준점 */
+  padding-left: 20px; /* 커스텀 체크박스 공간 확보 */
+  cursor: pointer; /* 클릭 가능한 요소임을 표시 */
+  font-size: 15px; /* 텍스트 크기 조절 */
+  color: white;
+  user-select: none; /* 텍스트 드래그 방지 */
+}
+
+/* (체크박스가 비어 있을 때) */
+.checkbox-line label::before {
+  content: ''; /* 가상 요소는 content 속성이 필수 */
+  position: absolute;
+  left: 0;
+  top: 50%; /* 세로 중앙 */
+  transform: translateY(-50%); /* 정확히 세로 중앙 정렬 */
+  width: 12px;
+  height: 12px;
+  border: 2px solid #999;
+  border-radius: 4px; /* 살짝 둥근 모서리 */
+  background-color: #f7f7f7;
+  transition: all 0.2s ease; /* 부드러운 상태 변화 */
+}
+
+/* 체크되었을 때 커스텀 체크박스 디자인 (배경색 변경 및 체크 아이콘 추가) */
+.checkbox-line input[type="checkbox"]:checked + label::before {
+  background-color: #3367D6; /* 체크 시 배경색 */
+  border-color: #5664b6; /* 체크 시 테두리 색 */
+}
+
+.checkbox-line {
+  margin-top: 5px; /* 위쪽 여백으로 다른 요소들과 분리 */
+}
+
+/* 셀렉트 */
+select {
+  margin: 6px 3px;
+  font-size: 13px;
+}
+
+
+/* ======================== Surfer ======================= */
+#Surfer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 3px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* li 요소 */
+#Surfer li {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border: 1px;
+  box-sizing: border-box;
+  padding: 1px;
+  margin-bottom: 4px;
+}
+
+#Surfer li .box_area {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  height: 0;
+  margin-bottom: 3px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+#Surfer li .box_background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 77%;
+  background-color: rgb(5, 17, 27);
+  opacity: 0;
+  transition: transform 0.1s ease;
+  z-index: 0;
+  pointer-events: none;
+}
+#Surfer li:hover .box_background {
+  opacity: 1;
+}
+
+#Surfer li .box {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 비율 */
+  height: 0;
+  margin-bottom: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  z-index: 1;
+  transition: transform 0.2s ease;
+}
+#Surfer li:hover .box {
+  transform: translate(4px, -4px);
+}
+
+#Surfer li .img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+#Surfer li .box .view {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  background-color: rgba(0, 0, 0, 0.7); /* 반투명 검은색 배경 */
+  color: white;
+  padding: 1px 4px;
+  border-radius: 3px;
+  font-size: 12px;
+  z-index: 1;
+}
+
+#Surfer li .box .time {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  background-color: rgba(0, 0, 0, 0.7); /* 반투명 검은색 배경 */
+  color: white;
+  padding: 1px 4px;
+  border-radius: 3px;
+  font-size: 12px;
+  z-index: 1;
+}
+
+#Surfer li .info {
+  display: grid;
+  grid-template-areas:
+    "profi title"
+    "profi nick"
+    "profi tags";
+  /* 프로필 이미지 크기는 고정하고, 나머지 공간을 title, nick, tags가 채움 */
+  grid-template-columns: 40px 1fr; 
+  gap: 4px 8px; /* 세로 4px, 가로 8px 간격 */
+  align-items: start;
+}
+
+#Surfer li .img2 {
+  grid-area: profi;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-left: 2px;
+  cursor: pointer;
+}
+
+#Surfer li .title {
+  grid-area: title;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+#Surfer li .nick {
+  grid-area: nick;
+  font-weight: normal;
+  color: #ffffff;
+}
+
+#Surfer li .tags {
+  grid-area: tags;
+  font-size: 0.8em;
+  color: #777;
+  /* 태그가 많아질 경우 자동으로 줄바꿈 되도록 설정 */
+  white-space: normal; 
+}
+
+#Surfer li .tag {
+  /* 뱃지 모양 및 크기 */
+  display: inline-flex;
+  align-items: center;
+  padding: 0px 6px; /* 뱃지 내부의 여백 (텍스트 주위) */
+  border-radius: 16px;
+
+  /* 배경색 및 텍스트 색상 */
+  background-color: #161616; /* 기본 배경색 (연한 회색) */
+  color: #ffffff; /* 기본 텍스트 색상 (어두운 회색) */
+  border: 1px solid;
+  border-color: rgb(255, 255, 255); /* 모든 테두리를 빨간색으로 */
+
+  /* 폰트 스타일 */
+  font-size: 12px; /* 텍스트 크기 */
+  font-weight: 500; /* 텍스트 굵기 (semibold) */
+  white-space: nowrap; /* 텍스트가 줄바꿈되지 않도록 */
+
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.8s ease, color 0.2s ease; /* 부드러운 전환 효과 */
+
+  margin-right: 2px;
+  margin-bottom: 3px;
+
+}
+
+#Surfer li .tag.changing {
+  background-color: #f33a21 !important; /* 파란색으로 변경 */
+}
+
+/* 호버 효과 (마우스를 올렸을 때) */
+#Surfer li .tags .tag:hover {
+  background-color: #d0d0d0; /* 호버 시 약간 더 어두운 회색 */
+  color: #1a1a1a; /* 호버 시 텍스트도 약간 더 어둡게 */
+}
+
+
+/* 카테고리 체크박스 */
+
+/* CateCheckboxContainer 전체 컨테이너 스타일 */
+#CateCheckboxContainer {
+  grid-area: cate;
+  /* 버튼들을 가로로 나열하고 여러 줄로 자동으로 줄 바꿈 */
+  display: flex;
+  flex-wrap: wrap; 
+  gap: 4px; /* 버튼들 사이의 간격 */
+
+  /* 스크롤 가능한 영역으로 설정 */
+  height: 200px; /* 높이 설정 */
+  overflow-y: auto; /* 내용이 넘칠 경우 세로 스크롤바 생성 */
+  padding: 10px; /* 컨테이너 내부 여백 */
+  border-radius: 8px; /* 컨테이너 모서리 둥글게 (선택 사항) */
+  background-color: rgb(34, 35, 39); /* 컨테이너 배경색 */
+}
+
+/* 개별 li 요소 스타일 (이 예시에서는 크게 필요하지 않지만 구조를 위해 유지) */
+#CateCheckboxContainer .CategoryCheck {
+  list-style: none; /* ol의 기본 점 제거 */
+  /* li 자체가 추가적인 여백을 가지지 않도록 */
+  margin: 0;
+  padding: 0;
+}
+
+/* 버튼 자체의 시각적 스타일 */
+#CateCheckboxContainer .category-button {
+  width: auto;
+  height: 16px;
+
+  /* 텍스트를 버튼 중앙에 배치 */
+  display: inline-flex;
+  align-items: center;      /* 세로 중앙 정렬 */
+  justify-content: center;  /* 가로 중앙 정렬 */
+  
+  /* 크기 및 모양 */
+  padding: 6px 12px;          /* 버튼 내부 여백 */
+  border-radius: 20px;        /* 둥근 네모 모양 (값 조절 가능) */
+  border: none;               /* 기본 테두리 제거 */
+  
+  /* 색상 (기본: 검정 배경, 흰색 텍스트) */
+  color: #fff;                /* 텍스트 색상: 흰색 */
+  
+  /* 폰트 */
+  font-size: 12px;            /* 텍스트 크기 */
+  font-weight: normal;          /* 텍스트 굵기 */
+  white-space: nowrap;        /* 텍스트가 줄바꿈되지 않도록 */
+  
+  /* 상호작용 */
+  cursor: pointer;            /* 마우스 커서 포인터로 변경 */
+  transition: background-color 0.2s ease, box-shadow 0.2s ease; /* 부드러운 전환 효과 */
+}
+
+/* 마우스 오버(hover) 효과 */
+#CateCheckboxContainer .category-button:hover {
+  opacity: 0.9; /* 약간 투명해지는 효과 */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* 은은한 그림자 */
+}
+
+/* 포커스(focus) 효과 (키보드 내비게이션 시) */
+#CateCheckboxContainer .category-button:focus {
+  outline: none; /* 기본 포커스 아웃라인 제거 */
+  box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.5); /* 파란색 포커스 링 */
+}
+
+.progress-container {
+  width: 100%; /* 화면 전체 너비 */
+  height: 8px; /* 게이지바 높이 */
+  background-color: #e0e0e0; /* 배경색 */
+  position: fixed; /* 고정 위치 */
+  top: 0; /* 최상단에 배치 */
+  left: 0; /* 왼쪽에서 시작 */
+  z-index: 1000; /* 다른 요소 위에 표시 */
+}
+
+.progress-bar {
+  height: 100%; /* 컨테이너 높이 채우기 */
+  background-color: #2196F3; /* 게이지바 색상 */
+  transition: width 0.2s ease; /* 부드러운 전환 효과 */
+}

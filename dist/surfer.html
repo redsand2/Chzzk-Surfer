@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Surfer</title>
+  <link rel="stylesheet" href="surfer.css">
+</head>
+<body>
+  <div class="search-container">
+    <div class="t1">
+      <h2 class="s5">스트리밍 시간</h2>
+      <input type="text" class="s2" id="mintime" placeholder="최소 방송시간"><br>
+      <input type="text" class="s2" id="maxtime" placeholder="최대 방송시간">
+    </div>
+    <div class="t1">
+      <h2 class="s5">시청자 수</h2>
+      <input type="text" class="s1" id="minview" placeholder="최소 시청자"><br>
+      <input type="text" class="s1" id="maxview" placeholder="최대 시청자">
+    </div>
+    <div class="t2">
+      <input type="text" id="searchInput" placeholder="(검색어 입력)">
+      <button id="searchActionButton">검색</button>
+      <select id="adult">
+        <option value="baby">응애</option>
+        <option value="adult">성인 컨텐츠 포함</option>
+        <option value="only">성인 컨텐츠만 표시</option>
+      </select>
+      <button id="viewBtn" class="s4">시청자수 정렬</button>
+    </div>
+    <div class="t1">
+      <h2 class="s5">태그 필터</h2>
+      <input type="text" id="intag" class="s7" placeholder="검색할 태그"><br>
+      <input type="text" id="extag" class="s7" placeholder="제외할 태그">
+      <div class="checkbox-line">
+        <input type="checkbox" id="tagSearchSw">
+        <label for="tagSearchSw">태그 검색 켜기</label>
+      </div>
+    </div>
+  </div>
+  <div class="CateCheckbox-Container t3">
+    <ol id="CateCheckboxContainer"></ol>
+  </div>
+  <div class="main">
+    <ol id="Surfer"></ol>
+  </div>
+  <div class="progress-container">
+    <div class="progress-bar" id="ProgressBar"></div>
+  </div>
+  <script type="module" src="surfer.js"></script>
+</body>
+</html>
