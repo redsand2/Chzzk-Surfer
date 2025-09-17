@@ -1,15 +1,20 @@
 {
   "manifest_version": 3,
-  "name": "치지직 세부 검색기",
+  "name": "치지직 서퍼",
   "version": "1.0.0",
-  "description": "치지직 세부 검색기",
+  "description": "파도가 뭘 싣고 올진.. 나에게 달렸죠....",
   "background": {
     "service_worker": "background.js",
     "type": "module"
   },
   "action": {
     "default_popup": "popup.html",
-    "default_title": "치지직 세부 검색기"
+    "default_title": "치지직 서퍼",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png"
+    }
   },
   "permissions": [
     "activeTab"
@@ -23,5 +28,11 @@
       "js": ["surfer.js"],
       "run_at": "document_end"
     }
-  ]
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
 }
